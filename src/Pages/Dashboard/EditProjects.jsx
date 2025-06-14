@@ -78,7 +78,7 @@ const EditProjects = () => {
 
       form.setFieldsValue({
         projectName: project.name || '',
-        projectTitle: project.title || '',
+        address: project.address || '',
         projectStartDate: project.startDate ? moment(project.startDate) : null,
         liveStreamLink: project.liveLink || '',
         liveLink2: project.liveLink2 || '',
@@ -276,21 +276,21 @@ const EditProjects = () => {
                   </Col>
                   <Col span={12}>
                     <Form.Item
-                      name="projectTitle"
+                      name="address"
                       label={
                         <Title level={5} className="text-gray-700 mb-1">
-                          Project Title
+                          Project Address
                         </Title>
                       }
                       rules={[
                         {
                           required: true,
-                          message: 'Please enter project title',
+                          message: 'Please enter project address',
                         },
                       ]}
                     >
                       <Input
-                        placeholder="Enter project title here..."
+                        placeholder="Enter project address here..."
                         className="rounded-md py-2"
                       />
                     </Form.Item>
@@ -301,7 +301,7 @@ const EditProjects = () => {
                     <Form.Item
                       label={
                         <Title level={5} className="text-gray-700 mb-1">
-                          Project Locations
+                          Rooms In House
                         </Title>
                       }
                     >

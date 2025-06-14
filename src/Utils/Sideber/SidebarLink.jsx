@@ -7,27 +7,27 @@ import { PiBuildingOfficeFill } from 'react-icons/pi';
 export const SidebarLink = [
   {
     path: '/',
-    label: 'User Manage',
+    label: 'Customers Manage',
     icon: <FaUsersGear size={24} />,
   },
   {
-    path: '/manager-manage',
-    label: 'Manager Manage',
+    path: '/employees-manage',
+    label: 'Employees',
     icon: <FaUserTie size={24} />,
   },
-  {
-    path: '/finance-management',
-    label: 'Finance Manage',
-    icon: <GrMoney size={24} />,
-  },
-  {
-    path: '/Office-manage',
-    label: 'Office Manager',
-    icon: <PiBuildingOfficeFill size={24} />,
-  },
+  // {
+  //   path: '/finance-management',
+  //   label: 'Finance Manage',
+  //   icon: <GrMoney size={24} />,
+  // },
+  // {
+  //   path: '/Office-manage',
+  //   label: 'Office Manager',
+  //   icon: <PiBuildingOfficeFill size={24} />,
+  // },
   {
     path: '/project-manage',
-    label: 'Project Manage',
+    label: 'Projects Manage',
     icon: <GrProjects size={20} />,
   },
 ];

@@ -10,6 +10,14 @@ export const userApis = baseApis.injectEndpoints({
       }),
       providesTags: ['user'],
     }),
+    getAllEmployee: builder.query({
+      query: ({ page, role, searchTerm, limit }) => ({
+        url: '/user/get-all-employee',
+        method: 'GET',
+        params: { page, role, searchTerm, limit },
+      }),
+      providesTags: ['user'],
+    }),
     deleteUser: builder.mutation({
       query: ({ id }) => ({
         url: `/user/delete-account/${id}`,
@@ -32,4 +40,5 @@ export const {
   useGetAllUserQuery,
   useDeleteUserMutation,
   useCreateUserMutation,
+  useGetAllEmployeeQuery,
 } = userApis;

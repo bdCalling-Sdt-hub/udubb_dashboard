@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Popconfirm, Table, Modal, Spin } from 'antd';
+import { Popconfirm, Table, Modal, Spin, Select } from 'antd';
 import UserImage from '../../Utils/Sideber/UserImage';
 import { Space, Button } from 'antd';
 import { IoEyeSharp } from 'react-icons/io5';
 import { MdBlock, MdDelete } from 'react-icons/md';
 import {
   useDeleteUserMutation,
-  useGetAllUserQuery,
+  useGetAllEmployeeQuery,
 } from '../../Redux/services/pagesApisServices/userApis';
 import toast from 'react-hot-toast';
 import UsernameImage from '../../Utils/Sideber/UserImage';
@@ -15,10 +15,11 @@ const ManagerTable = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [role, setRole] = useState('');
   const [deleteUser, { isLoading: isDeleting }] = useDeleteUserMutation();
-  const { data, isLoading } = useGetAllUserQuery({
+  const { data, isLoading } = useGetAllEmployeeQuery({
     page: currentPage,
-    role: 'manager',
+    ...(role !== '' ? { role } : {}),
   });
   const managerInformation =
     data?.data?.result?.map((user, index) => ({
@@ -86,6 +87,11 @@ const ManagerTable = () => {
       key: 'phoneNumber',
     },
     {
+      title: 'Employee Role',
+      dataIndex: ['user', 'role'],
+      key: 'role',
+    },
+    {
       title: 'Location',
       dataIndex: ['user', 'location'],
       key: 'location',
@@ -125,7 +131,17 @@ const ManagerTable = () => {
   ];
 
   return (
-    <>
+    <div>
+      <Select
+        placeholder="Select Role"
+        style={{ width: 220 }}
+        onChange={(value) => setRole(value)}
+        allowClear
+      >
+        <Option value="manager">Manager</Option>
+        <Option value="financeManager"></Option>
+        <Option value="officeManager">Office Manager</Option>
+      </Select>
       <Table
         rowClassName={() => 'table-row'}
         className="mt-2"
@@ -202,7 +218,7 @@ const ManagerTable = () => {
           </div>
         )}
       </Modal>
-    </>
+    </div>
   );
 };
 

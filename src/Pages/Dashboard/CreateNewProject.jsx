@@ -111,7 +111,7 @@ const CreateNewProject = () => {
 
       const dataPayload = {
         name: values.projectName,
-        title: values.projectTitle,
+        address: values.address,
         startDate: formattedDate,
         liveLink: values.liveStreamLink,
         liveLink2: values.liveLink2,
@@ -284,21 +284,21 @@ const CreateNewProject = () => {
                     </Col>
                     <Col span={12}>
                       <Form.Item
-                        name="projectTitle"
+                        name="address"
                         label={
                           <Title level={5} className="text-gray-700 mb-1">
-                            Project Title
+                            Project Address
                           </Title>
                         }
                         rules={[
                           {
                             required: true,
-                            message: 'Please enter project title',
+                            message: 'Please enter project address',
                           },
                         ]}
                       >
                         <Input
-                          placeholder="Enter project title here..."
+                          placeholder="Enter project address here..."
                           className="rounded-md py-2"
                         />
                       </Form.Item>
@@ -311,7 +311,7 @@ const CreateNewProject = () => {
                       <Form.Item
                         label={
                           <Title level={5} className="text-gray-700 mb-1">
-                            Project Locations
+                            Rooms In House
                           </Title>
                         }
                       >

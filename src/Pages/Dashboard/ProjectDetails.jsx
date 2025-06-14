@@ -346,7 +346,7 @@ function ProjectDetails() {
           {/* Project Manager */}
           {renderManagerCard(
             'Project Owner',
-            projectData?.projectOwner?.[0] || null,
+            projectData?.projectOwner || null,
             'red',
             'red'
           )}

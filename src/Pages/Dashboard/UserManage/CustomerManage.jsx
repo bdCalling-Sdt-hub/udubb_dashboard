@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import UserManageTable from '../../../Components/Tables/UserManageTable.jsx';
 import PageHeading from '../../../Components/Shared/PageHeading.jsx';
 import { Button, Form, Input, Modal, Spin } from 'antd';
 import { FaPlus } from 'react-icons/fa';
 import toast from 'react-hot-toast';
-import { useCreateUserMutation } from '../../../Redux/services/pagesApisServices/userApis.js';
-const UserManage = () => {
+import { useCreateUserMutation, useGetAllEmployeeQuery } from '../../../Redux/services/pagesApisServices/userApis.js';
+const CustomerManage = () => {
   const [showModal, setShowModal] = useState(false);
   const [createUser, { isLoading: isCreating }] = useCreateUserMutation();
+  const { data } = useGetAllEmployeeQuery()
   const [form] = Form.useForm();
   const handleSubmit = async () => {
     form.validateFields().then(async (values) => {
@@ -26,7 +27,6 @@ const UserManage = () => {
         } else {
           toast.error(res?.error?.data?.message || 'Failed to create user.');
         }
-
       } catch (error) {
         toast.error(error?.data?.message || 'Failed to create user.');
       }
@@ -35,18 +35,18 @@ const UserManage = () => {
   return (
     <div className="bg-[var(--black-200)] p-2 rounded mt-4 text-[var(--white-600)]">
       <div className="between-center">
-        <PageHeading text={'User Management'}></PageHeading>
+        <PageHeading text={'Customers Management'}></PageHeading>
         <Button
           onClick={() => setShowModal(true)}
           className="!bg-[#213555] !text-white !px-6 !py-5"
         >
-          <FaPlus /> Add New User
+          <FaPlus /> Add New Customer
         </Button>
       </div>
       <UserManageTable />
       <Modal
         centered
-        title="Add New User"
+        title="Add New Customer"
         open={showModal}
         onCancel={() => setShowModal(false)}
         footer={null}
@@ -92,4 +92,4 @@ const UserManage = () => {
   );
 };
 
-export default UserManage;
+export default memo(CustomerManage);

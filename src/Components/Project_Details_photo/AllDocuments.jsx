@@ -19,7 +19,7 @@ import {
   Image,
 } from 'antd';
 import pdf from '../../assets/pdf.png';
-import PageHeading from '../../Components/Shared/PageHeading';
+import PageHeading from '../Shared/PageHeading';
 
 function AllDocuments() {
   const location = useLocation();

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Popconfirm, Table, Modal } from 'antd';
+import { Popconfirm, Table, Modal, Select } from 'antd';
 import { Space, Button } from 'antd';
 import { IoEyeSharp } from 'react-icons/io5';
 import { MdBlock, MdDelete } from 'react-icons/md';
@@ -127,7 +127,7 @@ const UserManageTable = () => {
     },
   ];
   return (
-    <>
+    <div>
       <Table
         rowClassName={() => 'table-row'}
         className="mt-2"
@@ -201,7 +201,7 @@ const UserManageTable = () => {
           </div>
         )}
       </Modal>
-    </>
+    </div>
   );
 };
 
