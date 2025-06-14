@@ -25,32 +25,12 @@ function FinanceManagerAssignComponent({
     limit: 999,
   });
 
-  // const id = localStorage.getItem('financeManager');
 
-  // Filter finance managers based on financeManagerAssigned IDs
   const assignedFinanceManagers =
     FinanceManagerData?.data?.result?.filter((manager) =>
       financeManagerAssigned?.includes(manager._id)
     ) || [];
 
-  // useEffect(() => {
-  //   if (financeManager) {
-  //     setSelectedFinanceManager(
-  //       Array.isArray(financeManager) ? financeManager : [financeManager]
-  //     );
-  //   }
-  // }, [financeManager]);
-
-  // useEffect(() => {
-  //   if (id && FinanceManagerData?.data?.result) {
-  //     const filterData = FinanceManagerData.data.result.filter(
-  //       (item) => item._id === id
-  //     );
-  //     if (filterData.length > 0) {
-  //       setSelectedFinanceManager([filterData[0]]);
-  //     }
-  //   }
-  // }, [id, FinanceManagerData]);
 
   const AssignLabel = selectedFinanceManager ? 'Change' : 'Assign';
 

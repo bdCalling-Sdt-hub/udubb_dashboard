@@ -38,27 +38,7 @@ function OfficeManagerAssignComponent({
     OfiiceManagerData?.data?.result?.filter((manager) =>
       officeManagerAssigned?.includes(manager._id)
     ) || [];
-  // const id = localStorage.getItem('officeManager');
 
-  // useEffect(() => {
-  //   if (officeManager) {
-  //     const dataToSet = Array.isArray(officeManager)
-  //       ? officeManager
-  //       : [officeManager];
-  //     setSelectedOfficeManager(dataToSet);
-  //   }
-  // }, [officeManager]);
-
-  // useEffect(() => {
-  //   if (id && OfiiceManagerData?.data?.result) {
-  //     const filterData = OfiiceManagerData.data.result.filter(
-  //       (item) => item._id === id
-  //     );
-  //     if (filterData.length > 0) {
-  //       setSelectedOfficeManager(filterData);
-  //     }
-  //   }
-  // }, [id, OfiiceManagerData]);
 
   const Assign = selectedOfficeManager.length > 0 ? 'Change' : 'Assign';
   const handleDelete = async (id) => {

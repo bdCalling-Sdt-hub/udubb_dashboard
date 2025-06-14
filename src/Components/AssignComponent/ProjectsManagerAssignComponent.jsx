@@ -34,24 +34,7 @@ function ProjectsManagerAssignComponent({
       projectManagerAssigned?.includes(manager._id)
     ) || [];
 
-  // useEffect(() => {
-  //   if (projectManager) {
-  //     setSelectedManager(
-  //       Array.isArray(projectManager) ? projectManager : [projectManager]
-  //     );
-  //   }
-  // }, [projectManager]);
 
-  // useEffect(() => {
-  //   if (id && ManagerData?.data?.result) {
-  //     const filterData = ManagerData.data.result.filter(
-  //       (item) => item._id === id
-  //     );
-  //     if (filterData.length > 0) {
-  //       setSelectedManager([filterData[0]]);
-  //     }
-  //   }
-  // }, [id, ManagerData]);
 
   const Assign = selectedManager ? 'Change' : 'Assign';
 
